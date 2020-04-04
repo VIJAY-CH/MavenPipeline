@@ -10,7 +10,7 @@ pipeline {
          }
 		stage('Deploy to Tomcat'){
          steps(['tomcat-dev']) {
-         sh 'scp -o StrictHostKeyChecking=no webapp/target/*.war root@10.128.0.38:/opt/tomcat/tomcat/webapps/'
+         sh 'scp -o StrictHostKeyChecking=no webapp/target/*.war root@10.128.0.38:/usr/local/tomcat9/webapps'
       }
    }
     }
