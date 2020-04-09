@@ -6,10 +6,10 @@ pipeline {
 		stage('Build') {
          		steps {
             			// Get some code from a GitHub repository
-           			  //git 'https://github.com/VIJAY-CH/MavenPipeline.git'
-                  checkout([$class: 'GitSCM',branches: [[name: 'origin/dev']],extensions: [[$class: 'WipeWorkspace']],
-                  userRemoteConfigs: [[url: 'https://github.com/VIJAY-CH/MavenPipeline.git']]
-                  ])
+           			//git 'https://github.com/VIJAY-CH/MavenPipeline.git'
+				 checkout([$class: 'GitSCM',branches: [[name: 'origin/dev']],extensions: [[$class: 'WipeWorkspace']],
+				 userRemoteConfigs: [[url: 'https://github.com/VIJAY-CH/MavenPipeline.git']]
+			 	 ])
 
             			// Run Maven on a Unix agent.
             			sh "mvn -Dmaven.test.failure.ignore=true clean package"
